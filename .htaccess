@@ -1,0 +1,27 @@
+# ==============================================================================
+# OM Trip and Travels — Hostinger Production Root .htaccess
+# ==============================================================================
+
+# 1. Prevent directory browsing
+Options -Indexes
+
+# 2. Block direct HTTP access to sensitive files and source directories
+<FilesMatch "^\.env|composer\.(json|lock)|\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block access to internal directories from browser
+    RewriteRule ^(app|database|storage|vendor)(\/|$) - [F,L]
+
+    # Force HTTPS (Hostinger SSL)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Rewrite all public traffic to /public directory
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

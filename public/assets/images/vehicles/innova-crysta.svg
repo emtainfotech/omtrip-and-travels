@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bodyInnova" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f0f3f8"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="glassInnova" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="300" cy="315" rx="250" ry="18" fill="#000000" opacity="0.3" filter="blur(6px)"/>
+
+  <!-- Innova Crysta Sleek Body -->
+  <g>
+    <path d="M 70,265
+             C 70,250 85,225 110,210
+             L 190,135
+             C 215,120 260,115 320,115
+             L 470,120
+             C 505,125 530,165 540,210
+             L 540,270
+             C 540,278 528,282 500,282
+             L 455,282
+             A 42,42 0 0,0 371,282
+             L 210,282
+             A 42,42 0 0,0 126,282
+             L 80,282
+             C 70,282 70,275 70,265 Z" fill="url(#bodyInnova)" stroke="#94a3b8" stroke-width="2"/>
+
+    <!-- Front & Side Glasshouse -->
+    <path d="M 190,145 L 260,128 L 260,190 L 140,195 Z" fill="url(#glassInnova)"/>
+    <path d="M 268,128 L 365,128 L 365,190 L 268,190 Z" fill="url(#glassInnova)"/>
+    <path d="M 373,128 L 480,132 C 495,150 500,175 498,190 L 373,190 Z" fill="url(#glassInnova)"/>
+
+    <!-- Bold Chrome Hexagonal Front Grille -->
+    <polygon points="75,230 115,220 110,260 78,260" fill="#1e293b"/>
+    <line x1="80" y1="235" x2="112" y2="228" stroke="url(#chrome)" stroke-width="3"/>
+    <line x1="79" y1="243" x2="110" y2="238" stroke="url(#chrome)" stroke-width="3"/>
+    <line x1="78" y1="251" x2="108" y2="248" stroke="url(#chrome)" stroke-width="3"/>
+
+    <!-- Sleek Projector Headlight -->
+    <polygon points="85,215 125,200 120,225 82,230" fill="url(#chrome)"/>
+    <circle cx="105" cy="215" r="7" fill="#38bdf8"/>
+
+    <!-- Sharp Side Aerodynamic Character Lines -->
+    <path d="M 125,215 Q 310,210 520,205" fill="none" stroke="#ffffff" stroke-width="3"/>
+    <path d="M 125,217 Q 310,212 520,207" fill="none" stroke="#94a3b8" stroke-width="1.5"/>
+
+    <!-- Alloy Wheels (Diamond Cut) -->
+    <circle cx="168" cy="282" r="38" fill="#0f172a"/>
+    <circle cx="168" cy="282" r="28" fill="#475569"/>
+    <circle cx="168" cy="282" r="23" fill="#0f172a" stroke="url(#chrome)" stroke-width="4"/>
+    <circle cx="168" cy="282" r="8" fill="url(#chrome)"/>
+
+    <circle cx="413" cy="282" r="38" fill="#0f172a"/>
+    <circle cx="413" cy="282" r="28" fill="#475569"/>
+    <circle cx="413" cy="282" r="23" fill="#0f172a" stroke="url(#chrome)" stroke-width="4"/>
+    <circle cx="413" cy="282" r="8" fill="url(#chrome)"/>
+
+    <!-- Chrome Door Handles -->
+    <rect x="278" y="210" width="20" height="5" rx="2" fill="url(#chrome)"/>
+    <rect x="382" y="210" width="20" height="5" rx="2" fill="url(#chrome)"/>
+  </g>
+</svg>

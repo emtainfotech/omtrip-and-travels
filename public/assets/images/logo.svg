@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 68" width="100%" height="100%">
+  <!-- Orange Om Icon in Circle -->
+  <g transform="translate(6, 6)">
+    <circle cx="28" cy="28" r="27" fill="#fff7ed" stroke="#f26522" stroke-width="2.5"/>
+    <!-- Stylized Om symbol -->
+    <text x="28" y="38" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-size="28" fill="#f26522" text-anchor="middle">ॐ</text>
+  </g>
+
+  <!-- Text -->
+  <text x="74" y="32" font-family="'Segoe UI', -apple-system, system-ui, sans-serif" font-weight="900" font-size="22" fill="#18283e">
+    OM <tspan fill="#f26522">Trip and Travels</tspan>
+  </text>
+  <text x="74" y="48" font-family="'Segoe UI', -apple-system, system-ui, sans-serif" font-weight="600" font-size="9" fill="#64748b" letter-spacing="0.5">
+    Tempo Traveller • Urbania • SUV • Car Rental
+  </text>
+</svg>

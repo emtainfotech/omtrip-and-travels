@@ -1,0 +1,23 @@
+# Environment configuration (never commit credentials)
+.env
+
+# SQLite local database
+storage/database.sqlite
+storage/database.sqlite-shm
+storage/database.sqlite-wal
+
+# Logs and cache
+storage/logs/*.log
+storage/cache/*
+
+# User uploads (keep directory structure with .gitkeep)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace

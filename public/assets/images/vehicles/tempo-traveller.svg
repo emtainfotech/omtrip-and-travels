@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bodyGradWhite" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="60%" stop-color="#f2f5f9"/>
+      <stop offset="100%" stop-color="#d6dde6"/>
+    </linearGradient>
+    <linearGradient id="glassTempo" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#243444" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#121b24" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shadow -->
+  <ellipse cx="305" cy="325" rx="255" ry="20" fill="#000000" opacity="0.32" filter="blur(7px)"/>
+
+  <!-- High Roof Tempo Body -->
+  <g>
+    <!-- Roof Carrier -->
+    <rect x="220" y="60" width="270" height="20" fill="#3a4450" rx="4"/>
+    <line x1="240" y1="60" x2="240" y2="80" stroke="#2a333d" stroke-width="3"/>
+    <line x1="300" y1="60" x2="300" y2="80" stroke="#2a333d" stroke-width="3"/>
+    <line x1="360" y1="60" x2="360" y2="80" stroke="#2a333d" stroke-width="3"/>
+    <line x1="420" y1="60" x2="420" y2="80" stroke="#2a333d" stroke-width="3"/>
+
+    <!-- Van Shell -->
+    <path d="M 85,245 
+             C 85,215 95,145 135,115
+             L 200,80
+             L 515,80
+             C 530,80 540,95 540,120
+             L 540,270
+             C 540,280 530,285 505,285
+             L 455,285
+             A 44,44 0 0,0 367,285
+             L 205,285
+             A 44,44 0 0,0 117,285
+             L 90,285
+             C 85,285 82,275 82,260
+             Z" fill="url(#bodyGradWhite)" stroke="#b0bac6" stroke-width="2"/>
+
+    <!-- Windows Strip -->
+    <path d="M 130,125 L 195,100 L 195,185 L 115,185 C 120,155 125,135 130,125 Z" fill="url(#glassTempo)"/>
+    <rect x="203" y="100" width="70" height="85" fill="url(#glassTempo)"/>
+    <rect x="279" y="100" width="70" height="85" fill="url(#glassTempo)"/>
+    <rect x="355" y="100" width="70" height="85" fill="url(#glassTempo)"/>
+    <rect x="431" y="100" width="95" height="85" fill="url(#glassTempo)"/>
+
+    <!-- Classic Tempo Yellow/Orange Touring Decal -->
+    <polygon points="120,215 535,215 535,230 115,230" fill="#f59e0b"/>
+    <polygon points="125,233 535,233 535,238 120,238" fill="#1e293b"/>
+
+    <!-- "TRAVELLER" Text Graphic on side -->
+    <text x="350" y="227" font-family="'Segoe UI', Arial, sans-serif" font-weight="900" font-style="italic" font-size="11" fill="#ffffff" letter-spacing="2">TRAVELLER</text>
+
+    <!-- Front Grille & Headlamp -->
+    <rect x="83" y="215" width="28" height="35" rx="3" fill="#cbd5e1" stroke="#94a3b8"/>
+    <circle cx="95" cy="230" r="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <circle cx="95" cy="230" r="6" fill="#fef08a"/>
+
+    <!-- Bumpers -->
+    <path d="M 78,255 L 105,255 L 103,285 L 80,285 Z" fill="#334155"/>
+
+    <!-- Wheels -->
+    <circle cx="161" cy="285" r="41" fill="#1e293b"/>
+    <circle cx="161" cy="285" r="30" fill="#64748b"/>
+    <circle cx="161" cy="285" r="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+    <circle cx="161" cy="285" r="8" fill="#1e293b"/>
+
+    <circle cx="411" cy="285" r="41" fill="#1e293b"/>
+    <circle cx="411" cy="285" r="30" fill="#64748b"/>
+    <circle cx="411" cy="285" r="16" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+    <circle cx="411" cy="285" r="8" fill="#1e293b"/>
+  </g>
+</svg>
