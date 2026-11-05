@@ -9,6 +9,8 @@ storage/database.sqlite-wal
 # Logs and cache
 storage/logs/*.log
 storage/cache/*
+storage/rate_limits/*
+!storage/rate_limits/.gitkeep
 
 # User uploads (keep directory structure with .gitkeep)
 public/uploads/*
