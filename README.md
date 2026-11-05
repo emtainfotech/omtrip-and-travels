@@ -141,42 +141,92 @@ php -S localhost:8000 -t public
 
 ---
 
-## 🚀 Hostinger Shared Hosting Deployment Guide
+## 🚀 Hostinger Web Hosting Deployment Guide (via GitHub)
 
-### Step 1: Upload Files to Hostinger
-1. Log in to your **Hostinger hPanel**.
-2. Go to **File Manager** (or connect via SFTP/FTP using FileZilla).
-3. Upload all project files into your domain's folder (typically `public_html/`).
+This section provides the complete step-by-step workflow to deploy **OM Trip and Travels** to Hostinger Shared Hosting using GitHub and Hostinger's native Git auto-deploy integration.
 
-### Step 2: Configure Document Root OR Use Root `.htaccess`
-**Option A (Recommended in hPanel):**
-- In hPanel, go to **Websites** &rarr; **Website Configuration** &rarr; **Change Document Root**.
-- Point the document root from `public_html` to `public_html/public`.
+### Step 1: Push Code to GitHub
+1. Open your terminal in this project folder:
+   ```bash
+   git branch -M main
+   ```
+2. Create a new repository on [GitHub](https://github.com/new) (e.g. `omtrip-and-travels`). It can be **Public** or **Private**.
+3. Add the remote and push your code:
+   ```bash
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/omtrip-and-travels.git
+   git push -u origin main
+   ```
+   *(Note: `.env`, local sqlite databases, and temporary logs are safely excluded via `.gitignore`)*
 
-**Option B (Standard):**
-- If your hosting doesn't allow changing the document root, keep the included root `.htaccess` inside `public_html/`. It automatically routes all incoming requests to the `/public` directory securely.
+---
 
-### Step 3: Create MySQL Database & Import Data
-1. In hPanel, navigate to **Databases** &rarr; **MySQL Databases**.
-2. Create a new database (e.g. `u123456789_omtrip`) and database user with full privileges.
-3. Open **phpMyAdmin** for that database.
-4. Click **Import**, choose `database/schema.sql`, and execute.
-5. Click **Import**, choose `database/seed.sql`, and execute.
+### Step 2: Create MySQL Database on Hostinger
+1. Log in to [Hostinger hPanel](https://hpanel.hostinger.com).
+2. Go to **Databases** &rarr; **MySQL Databases**.
+3. Under **Create a New MySQL Database and Database User**:
+   - **Database Name**: e.g., `omtrip` (full name will be like `u123456789_omtrip`)
+   - **Username**: e.g., `omtripuser` (full username will be like `u123456789_omtripuser`)
+   - **Password**: Choose a strong password (copy it down).
+4. Click **Create**.
 
-### Step 4: Configure Production `.env`
-In File Manager, create/edit `.env` inside the root folder:
+---
+
+### Step 3: Import Database Tables via phpMyAdmin
+1. On the same **MySQL Databases** page, scroll down to **List of Current MySQL Databases And Users**.
+2. Click **Enter phpMyAdmin** next to your new database.
+3. In phpMyAdmin, click the **Import** tab at the top.
+4. Click **Choose File** and select `database/schema.sql` from your local machine, then click **Go** (or **Import** at the bottom).
+5. Next, click **Import** again, choose `database/seed.sql`, and click **Go**.
+   > *All tables, initial categories, sample fleet (Urbania, Tempo Traveller, Fortuner, Innova), tour packages, FAQs, and the pre-configured Super Admin account are now loaded!*
+
+---
+
+### Step 4: Connect GitHub in Hostinger hPanel
+1. In Hostinger hPanel, search for or click **Git** (under the **Advanced** section).
+2. Fill in the deployment details:
+   - **Repository**: Paste your GitHub repository URL:
+     - For **Public** repos: `https://github.com/YOUR_GITHUB_USERNAME/omtrip-and-travels.git`
+     - For **Private** repos: `git@github.com:YOUR_GITHUB_USERNAME/omtrip-and-travels.git`
+   - **Branch**: `main`
+   - **Install Path**: `public_html` (leave default or select your domain root)
+3. If using a **Private Repository**:
+   - Hostinger will display an **SSH Public Key**.
+   - Copy this key, go to your repository on **GitHub** &rarr; **Settings** &rarr; **Deploy keys** &rarr; **Add deploy key**.
+   - Paste the key, name it "Hostinger", and click **Add key**.
+4. Click **Create** in Hostinger. Hostinger will clone and pull your code directly into `public_html`.
+
+#### Enable Automatic Deployment (Continuous Deployment)
+- On the Git page in hPanel, find your deployed repository and click **Auto Deployment** or copy the **Webhook URL**.
+- In GitHub, go to your repo &rarr; **Settings** &rarr; **Webhooks** &rarr; **Add webhook**:
+  - **Payload URL**: Paste the Hostinger Webhook URL.
+  - **Content type**: `application/json`
+  - Select **Just the push event**.
+  - Click **Add webhook**.
+- *Now, every time you `git push` from your local machine, Hostinger will automatically update your live site within seconds!*
+
+---
+
+### Step 5: Create Production `.env` File on Hostinger
+Since `.env` contains confidential database and mail credentials, it is not pushed to GitHub. You must create it once on the server:
+1. In hPanel, go to **Files** &rarr; **File Manager** &rarr; enter `public_html/`.
+2. Click **New File**, name it `.env`.
+3. Paste the following configuration, replacing the values with your actual Hostinger credentials:
+
 ```ini
 APP_NAME="OM Trip and Travels"
 APP_URL=https://yourdomain.com
 APP_ENV=production
 APP_DEBUG=false
 
+# Hostinger MySQL Database
+DB_CONNECTION=mysql
 DB_HOST=localhost
 DB_PORT=3306
 DB_NAME=u123456789_omtrip
 DB_USER=u123456789_omtripuser
 DB_PASS=YourStrongDatabasePassword123!
 
+# Hostinger Webmail / SMTP (hPanel -> Emails -> Email Accounts)
 SMTP_HOST=smtp.hostinger.com
 SMTP_PORT=465
 SMTP_USER=info@yourdomain.com
@@ -184,26 +234,51 @@ SMTP_PASS=YourEmailPassword123!
 SMTP_FROM=info@yourdomain.com
 ADMIN_NOTIFY_EMAIL=admin@yourdomain.com
 
-WHATSAPP_NUMBER=919876543210
-PHONE_NUMBER=+919876543210
+# Business Contact details for Call & WhatsApp CTAs
+WHATSAPP_NUMBER=919826012345
+PHONE_NUMBER="+91 98260 12345"
+
+# Optional Cloudflare Turnstile (leave blank to disable)
+TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
 ```
+4. Click **Save & Close**.
 
-### Step 5: Set Folder Permissions
-Ensure the following directories are writeable by PHP (Permission `755` or `775`):
-- `storage/logs/`
-- `storage/rate_limits/`
-- `public/uploads/` (and its subdirectories `vehicles`, `packages`, `blog`, `gallery`, `banners`, `general`)
+---
 
-> *Note: PHP file execution is strictly blocked inside `public/uploads/` via `public/uploads/.htaccess`.*
+### Step 6: Verify Permissions & Document Root
+1. **Directory Permissions**:
+   In File Manager, ensure the following folders have write permissions (`755` or `775`):
+   - `storage/logs/`
+   - `storage/rate_limits/`
+   - `public/uploads/`
+2. **Document Root / .htaccess**:
+   - The repository includes a production-ready root `.htaccess` file inside `public_html/`.
+   - It automatically routes web traffic to `/public` and blocks browser access to `app/`, `database/`, `storage/`, and `.env`.
+   - Alternatively, if your hPanel allows changing the Document Root under **Websites &rarr; Manage &rarr; Website Settings**, you can point Document Root directly to `public_html/public`.
 
-### Step 6: Create the Admin User
-Open the **SSH Terminal** in Hostinger hPanel or run via SSH:
-```bash
-php bin/create-admin.php "Super Admin" admin@yourdomain.com "YourSecurePassword" super_admin
-```
+---
 
-### Step 7: Enable SSL
-In hPanel &rarr; **Security** &rarr; **SSL**, activate the free Let's Encrypt SSL certificate and enable **Force HTTPS**.
+### Step 7: SSL & PHP Configuration
+1. In hPanel, navigate to **Security** &rarr; **SSL**:
+   - Ensure the free **Let's Encrypt SSL** is active for your domain.
+   - Enable **Force HTTPS**.
+2. In hPanel, go to **Advanced** &rarr; **PHP Configuration**:
+   - Select **PHP 8.1**, **PHP 8.2**, or **PHP 8.3**.
+   - Under **PHP Extensions**, ensure `pdo_mysql`, `gd`, `curl`, and `mbstring` are enabled (default on Hostinger).
+
+---
+
+### Step 8: Login to Admin Panel
+1. Visit your live site: `https://yourdomain.com`
+2. Open the Admin Panel: `https://yourdomain.com/admin/login`
+3. Log in with the pre-seeded Super Admin account:
+   - **Email**: `admin@omtripandtravels.com`
+   - **Password**: `Admin@123456`
+4. Once logged in:
+   - Go to your profile / **Change Password** to set your personal secure password.
+   - Go to **Settings** to update your business address, phone, WhatsApp number, and social links.
+   - Test the **"Test SMTP Connection"** button to confirm Hostinger mail delivery.
 
 ---
 
