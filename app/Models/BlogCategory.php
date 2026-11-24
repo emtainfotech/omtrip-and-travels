@@ -22,4 +22,3 @@ class BlogCategory extends BaseModel
         return $this->findBy('slug', $slug);
     }
 }
-      

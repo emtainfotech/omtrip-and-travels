@@ -120,9 +120,13 @@ $flash = App\Core\Session::allFlash();
             <i class="bi bi-list fs-1 text-dark"></i>
         </button>
 
-        <!-- Brand Logo -->
+        <!-- Brand Logo & Company Name -->
         <a class="navbar-brand d-flex align-items-center py-1" href="/">
             <img src="/assets/images/logo.svg" alt="OM Trip and Travels" height="42" class="me-2" onerror="this.src='/assets/images/logo.png'">
+            <div class="brand-text-wrap d-flex flex-column text-start">
+                <span class="brand-title fw-bold text-dark lh-1" style="font-size: 1.25rem; letter-spacing: -0.3px;">OM Trip and Travels</span>
+                <span class="brand-tagline text-muted small lh-1 mt-1" style="font-size: 0.75rem;">Urbania &bull; Tempo Traveller &bull; Indore</span>
+            </div>
         </a>
 
         <!-- Mobile Right: WhatsApp direct icon -->
@@ -142,6 +146,7 @@ $flash = App\Core\Session::allFlash();
                         <li><a class="dropdown-item" href="/fleet">All Vehicles</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="/fleet/force-urbania">Force Urbania (17 Seater)</a></li>
+                        <li><a class="dropdown-item" href="/fleet/maharaja-tempo-traveller"><span class="badge bg-warning text-dark me-1">VIP</span> Maharaja Tempo Traveller</a></li>
                         <li><a class="dropdown-item" href="/fleet/tempo-traveller">Tempo Traveller (12/17 Seater)</a></li>
                         <li><a class="dropdown-item" href="/fleet/innova-crysta">Innova Crysta</a></li>
                         <li><a class="dropdown-item" href="/fleet/toyota-fortuner">Toyota Fortuner</a></li>
@@ -204,7 +209,7 @@ $flash = App\Core\Session::allFlash();
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-4 col-md-6">
-                <div class="footer-logo mb-3"><i class="bi bi-geo-alt-fill"></i> OM <span>Trip</span> &amp; Travels</div>
+                <div class="footer-logo mb-3"><i class="bi bi-geo-alt-fill text-warning me-1"></i> OM <span class="text-warning">Trip</span> and Travels</div>
                 <p class="small" style="color:rgba(255,255,255,.65);"><?= nl2br(htmlspecialchars($settings('footer_about', 'OM Trip and Travels — Indore\'s trusted name for group travel.'))) ?></p>
                 <div class="social-links mt-3">
                     <?php if ($settings('facebook_url')): ?><a href="<?= htmlspecialchars($settings('facebook_url')) ?>" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a><?php endif; ?>

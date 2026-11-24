@@ -7,58 +7,99 @@ $wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844'
 $appUrl  = rtrim(env('APP_URL', ''), '/');
 ?>
 
-<!-- 1. EXACT MOCKUP HERO SECTION -->
-<section class="hero-section text-white">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Left: Headline, Subtitle, CTAs & Route Pills -->
-            <div class="col-lg-6 pt-3 pb-3">
-                <div class="badge-hero-pill mb-3">
-                    <i class="bi bi-truck-front-fill me-2"></i>Group Travel Made Easy from Indore
-                </div>
-                <h1 class="hero-title mb-3">
-                    Urbania &amp; Tempo Traveller<br>
-                    on Rent in <span class="text-orange">Indore</span>
-                </h1>
-                <p class="hero-subtext mb-4">
-                    Comfortable, Safe and Reliable Travel for Families, Weddings, Pilgrimages, Corporate Trips &amp; Group Tours.
-                </p>
+<!-- 1. FULL-WIDTH HERO SLIDER (MANAGEABLE FROM ADMIN /admin/banners) -->
+<section class="hero-slider-section">
+    <div id="heroBannerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover">
+        <?php if (!empty($banners) && count($banners) > 1): ?>
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <?php foreach ($banners as $idx => $b): ?>
+            <button type="button" data-bs-target="#heroBannerCarousel" data-bs-slide-to="<?= $idx ?>" class="<?= $idx === 0 ? 'active' : '' ?>" aria-current="<?= $idx === 0 ? 'true' : 'false' ?>" aria-label="Slide <?= $idx + 1 ?>"></button>
+            <?php endforeach; ?>
+        </div>
+        <?php endif; ?>
 
-                <!-- 3 Action CTAs -->
-                <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
-                    <a href="tel:<?= htmlspecialchars($phone) ?>" class="btn btn-hero-call" data-log-call="1">
-                        <i class="bi bi-telephone-fill me-1"></i> Call Now
-                    </a>
-                    <a href="<?= htmlspecialchars($waUrl) ?>" target="_blank" rel="noopener" class="btn btn-hero-wa" data-log-whatsapp="1">
-                        <i class="bi bi-whatsapp me-1"></i> WhatsApp
-                    </a>
-                    <a href="#quick-quote-card" class="btn btn-hero-quote">
-                        <i class="bi bi-card-checklist me-1"></i> Get a Quote
-                    </a>
-                </div>
+        <!-- Carousel Inner -->
+        <div class="carousel-inner">
+            <?php 
+            $slideList = !empty($banners) ? $banners : [
+                [
+                    'title'      => 'Indore to Ujjain Mahakal Darshan',
+                    'subtitle'   => 'Experience Divine Bhasma Aarti with Luxury Force Urbania & Tempo Traveller. 24x7 Guaranteed On-Time Pickups.',
+                    'image_path' => '/assets/images/banners/banner-ujjain.jpg',
+                    'cta_text'   => 'Book Ujjain Darshan',
+                    'cta_url'    => '/packages/indore-to-ujjain-mahakal-darshan',
+                    'cta_type'   => 'link'
+                ]
+            ];
+            foreach ($slideList as $idx => $b): 
+                $ctaUrl = $b['cta_url'] ?: '/packages';
+                if ($b['cta_type'] === 'call') {
+                    $ctaUrl = 'tel:' . preg_replace('/\s+/', '', $phone);
+                } elseif ($b['cta_type'] === 'whatsapp') {
+                    $ctaUrl = $waUrl;
+                }
+                $ctaText = $b['cta_text'] ?: 'Book Tour Package';
+            ?>
+            <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
+                <div class="hero-slide-wrapper">
+                    <img src="<?= htmlspecialchars($b['image_path']) ?>" class="d-block w-100 hero-slide-bg" alt="<?= htmlspecialchars($b['title']) ?>" loading="<?= $idx === 0 ? 'eager' : 'lazy' ?>">
+                    <div class="hero-slide-overlay">
+                        <div class="container h-100 d-flex flex-column justify-content-center">
+                            <div class="row">
+                                <div class="col-xl-8 col-lg-9 col-md-11 text-white py-4">
+                                    <div class="badge-hero-pill mb-3">
+                                        <i class="bi bi-patch-check-fill text-warning me-2"></i>OM Trip and Travels &bull; Indore
+                                    </div>
+                                    <h1 class="hero-title mb-3">
+                                        <?= htmlspecialchars($b['title']) ?>
+                                    </h1>
+                                    <?php if (!empty($b['subtitle'])): ?>
+                                    <p class="hero-subtext mb-4">
+                                        <?= htmlspecialchars($b['subtitle']) ?>
+                                    </p>
+                                    <?php endif; ?>
 
-                <!-- Quick Route Pills -->
-                <div class="d-flex flex-wrap gap-2 hero-route-pills">
-                    <a href="/packages/indore-to-ujjain-mahakal-darshan" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Ujjain</a>
-                    <a href="/packages/indore-to-omkareshwar-jyotirlinga" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Omkareshwar</a>
-                    <a href="/packages/maheshwar-mandu-heritage-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Maheshwar</a>
-                    <a href="/packages/maheshwar-mandu-heritage-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Mandu</a>
-                    <a href="/packages/pachmarhi-hill-station-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Pachmarhi</a>
-                    <a href="/packages/shirdi-sai-baba-darshan" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Shirdi</a>
-                    <a href="/packages/khajuraho-heritage-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Khajuraho</a>
-                </div>
-            </div>
+                                    <!-- 3 Action CTAs -->
+                                    <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
+                                        <a href="<?= htmlspecialchars($ctaUrl) ?>" class="btn btn-hero-call" <?= $b['cta_type'] === 'whatsapp' ? 'target="_blank" rel="noopener" data-log-whatsapp="1"' : ($b['cta_type'] === 'call' ? 'data-log-call="1"' : '') ?>>
+                                            <i class="bi <?= $b['cta_type'] === 'whatsapp' ? 'bi-whatsapp' : ($b['cta_type'] === 'call' ? 'bi-telephone-fill' : 'bi-compass-fill') ?> me-1"></i> <?= htmlspecialchars($ctaText) ?>
+                                        </a>
+                                        <a href="tel:<?= htmlspecialchars($phone) ?>" class="btn btn-hero-slider-outline" data-log-call="1">
+                                            <i class="bi bi-telephone-fill me-1"></i> Call Now
+                                        </a>
+                                        <a href="<?= htmlspecialchars($waUrl) ?>" target="_blank" rel="noopener" class="btn btn-hero-wa" data-log-whatsapp="1">
+                                            <i class="bi bi-whatsapp me-1"></i> WhatsApp
+                                        </a>
+                                    </div>
 
-            <!-- Right: Real Photorealistic Fleet Poster with Mahakaleshwar Ujjain Backdrop -->
-            <div class="col-lg-6 text-center text-lg-end hero-graphic-wrap">
-                <div class="hero-poster-frame">
-                    <img src="/assets/images/hero-fleet-banner.jpg" alt="Force Urbania, Tempo Traveller, Fortuner &amp; Innova on Rent in Indore" class="img-fluid hero-poster-img" loading="eager">
-                    <div class="hero-poster-badge">
-                        <i class="bi bi-patch-check-fill text-warning me-1"></i> Verified Luxury Fleet &bull; Indore
+                                    <!-- Quick Route Pills -->
+                                    <div class="d-flex flex-wrap gap-2 hero-route-pills">
+                                        <a href="/packages/indore-to-ujjain-mahakal-darshan" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Ujjain</a>
+                                        <a href="/packages/indore-to-omkareshwar-jyotirlinga" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Omkareshwar</a>
+                                        <a href="/packages/maheshwar-mandu-heritage-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Maheshwar-Mandu</a>
+                                        <a href="/packages/pachmarhi-hill-station-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Pachmarhi</a>
+                                        <a href="/packages" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Bhopal</a>
+                                        <a href="/packages/indore-to-shirdi-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Shirdi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
+
+        <?php if (!empty($banners) && count($banners) > 1): ?>
+        <!-- Navigation Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroBannerCarousel" data-bs-slide="prev" aria-label="Previous">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroBannerCarousel" data-bs-slide="next" aria-label="Next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        <?php endif; ?>
     </div>
 </section>
 
@@ -228,6 +269,18 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                         ['icon' => 'bi-briefcase-fill', 'text' => 'Spacious'],
                     ],
                     'ideal' => 'Family Trips, Corporate Tours, Weddings, Pilgrimage'
+                ],
+                'maharaja-tempo-traveller' => [
+                    'name' => 'Maharaja Tempo Traveller',
+                    'badge' => 'Royal Luxury',
+                    'badge_class' => 'badge-pill-orange',
+                    'img' => '/assets/images/vehicles/maharaja-tempo-traveller.jpg',
+                    'specs' => [
+                        ['icon' => 'bi-stars', 'text' => '1x1 VIP Seats'],
+                        ['icon' => 'bi-snow', 'text' => 'AC + LED Roof'],
+                        ['icon' => 'bi-gem', 'text' => 'Executive'],
+                    ],
+                    'ideal' => 'VIP Movement, Royal Weddings, Luxury Pilgrimages'
                 ],
                 'tempo-traveller' => [
                     'name' => 'Tempo Traveller',
