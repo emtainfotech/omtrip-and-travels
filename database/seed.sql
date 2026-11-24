@@ -11,8 +11,8 @@ ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
 INSERT INTO `settings` (`key`, `value`, `type`, `group`, `label`) VALUES
 ('business_name', 'OM Trip and Travels', 'text', 'general', 'Business Name'),
 ('tagline', 'Urbania & Tempo Traveller Specialists in Indore', 'text', 'general', 'Tagline'),
-('phone', '+91 98260 12345', 'text', 'general', 'Phone Number'),
-('whatsapp_number', '919826012345', 'text', 'general', 'WhatsApp Number (without +)'),
+('phone', '+91 98262 58844', 'text', 'general', 'Phone Number'),
+('whatsapp_number', '919826258844', 'text', 'general', 'WhatsApp Number (without +)'),
 ('email', 'info@omtripandtravels.com', 'text', 'general', 'Email Address'),
 ('address', '123, Vijay Nagar, Indore, Madhya Pradesh - 452010', 'textarea', 'general', 'Full Address'),
 ('city', 'Indore', 'text', 'general', 'City'),

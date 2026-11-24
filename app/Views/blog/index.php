@@ -127,7 +127,7 @@
                 <i class="bi bi-truck-front display-4 mb-2"></i>
                 <h3 class="h5 fw-bold mb-2">Hire Tempo &amp; Urbania</h3>
                 <p class="small text-white-50 mb-3">Traveling to these destinations with family or friends? Book your group van with driver today.</p>
-                <a href="tel:<?= htmlspecialchars($phone ?? '+919876543210') ?>" class="btn btn-light fw-bold">
+                <a href="tel:<?= htmlspecialchars($phone ?? '+919826258844') ?>" class="btn btn-light fw-bold">
                     <i class="bi bi-telephone-fill me-1 text-primary"></i>Call Now
                 </a>
             </div>

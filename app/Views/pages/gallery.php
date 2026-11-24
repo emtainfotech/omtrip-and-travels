@@ -34,7 +34,7 @@
     <div class="alert alert-info text-center py-5">
         <h5>No gallery photos currently displayed.</h5>
         <p class="text-muted">Our fleet photos are being updated. Call us for instant photos via WhatsApp!</p>
-        <a href="https://wa.me/<?= htmlspecialchars($settings['whatsapp_number'] ?? '919876543210') ?>" target="_blank" class="btn btn-whatsapp"><i class="bi bi-whatsapp me-1"></i>Request Photos on WhatsApp</a>
+        <a href="https://wa.me/<?= htmlspecialchars($settings['whatsapp_number'] ?? '919826258844') ?>" target="_blank" class="btn btn-whatsapp"><i class="bi bi-whatsapp me-1"></i>Request Photos on WhatsApp</a>
     </div>
     <?php else: ?>
     <div class="row g-3">

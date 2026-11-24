@@ -164,7 +164,7 @@
                         alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> Thank you! Your request has been received. Our team will contact you in 15 minutes.';
                         setTimeout(() => {
                             const waText = encodeURIComponent(`Hello OM Trip and Travels, I just requested a quote for ${data.pickup_location || 'Indore'} to ${data.drop_location} on ${data.travel_date} for ${data.passengers} passengers. Name: ${data.name}`);
-                            window.open(`https://wa.me/919826012345?text=${waText}`, '_blank');
+                            window.open(`https://wa.me/919826258844?text=${waText}`, '_blank');
                         }, 1200);
                     } else {
                         alertBox.classList.add('alert-danger');
@@ -177,7 +177,7 @@
                 if (alertBox) {
                     alertBox.classList.remove('d-none', 'alert-success');
                     alertBox.classList.add('alert-danger');
-                    alertBox.textContent = 'Enquiry submitted. Call us directly at +91 98260 12345.';
+                    alertBox.textContent = 'Enquiry submitted. Call us directly at +91 98262 58844.';
                 }
                 btn.disabled = false;
                 btn.innerHTML = originalBtnHtml;

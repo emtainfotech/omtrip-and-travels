@@ -325,8 +325,8 @@ if (!$hasSettings) {
     $settings = [
         ['business_name', 'OM Trip and Travels', 'text', 'general', 'Business Name'],
         ['tagline', 'Tempo Traveller • Urbania • SUV • Car Rental for Group Travel', 'text', 'general', 'Tagline'],
-        ['phone', '+91 98260 12345', 'text', 'general', 'Phone Number'],
-        ['whatsapp_number', '919826012345', 'text', 'general', 'WhatsApp Number'],
+        ['phone', '+91 98262 58844', 'text', 'general', 'Phone Number'],
+        ['whatsapp_number', '919826258844', 'text', 'general', 'WhatsApp Number'],
         ['email', 'info@omtripandtravels.com', 'text', 'general', 'Email Address'],
         ['address', '123, Scheme 54, Vijay Nagar, Indore, Madhya Pradesh - 452010', 'textarea', 'general', 'Full Address'],
         ['city', 'Indore', 'text', 'general', 'City'],
@@ -435,7 +435,7 @@ if (!$hasTests) {
 $hasFaqs = $pdo->query("SELECT COUNT(*) FROM faqs")->fetchColumn();
 if (!$hasFaqs) {
     $faqs = [
-        ['How do I confirm my vehicle booking with OM Trip and Travels?', 'Simply call us at +91 98260 12345 or send a WhatsApp message with your travel dates and passenger count. No online advance payment or card details are required.', 'Booking', 1],
+        ['How do I confirm my vehicle booking with OM Trip and Travels?', 'Simply call us at +91 98262 58844 or send a WhatsApp message with your travel dates and passenger count. No online advance payment or card details are required.', 'Booking', 1],
         ['Are all vehicles air-conditioned?', 'Yes, 100% of our fleet including Force Urbania, Tempo Travellers, and SUVs have powerful front and rear air-conditioning systems.', 'Fleet', 2],
         ['Do you provide pickup from Indore Airport or Railway Station?', 'Yes, we provide 24/7 doorstep pickup anywhere in Indore, including Devi Ahilyabai Holkar Airport, Indore Junction, and all major residential areas.', 'Services', 3],
         ['Can we rent Urbania or Tempo Traveller for outstation trips outside MP?', 'Yes, all our commercial vehicles have All-India tourist permits. We frequently operate trips to Shirdi, Dwarka, Somnath, Rajasthan, and across India.', 'Booking', 4],

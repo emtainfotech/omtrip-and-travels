@@ -2,8 +2,8 @@
 /**
  * Contact Us view.
  */
-$phone = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98765 43210');
-$wa    = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
+$phone = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98262 58844');
+$wa    = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
 $waUrl = 'https://wa.me/' . $wa . '?text=' . rawurlencode('Hello OM Trip and Travels, I want to enquire about your services.');
 ?>
 <!-- PAGE HERO -->
@@ -104,7 +104,7 @@ $waUrl = 'https://wa.me/' . $wa . '?text=' . rawurlencode('Hello OM Trip and Tra
                             <label class="form-label">Mobile Number (10 digits) *</label>
                             <div class="input-group">
                                 <span class="input-group-text">+91</span>
-                                <input type="tel" name="phone" class="form-control" required placeholder="9876543210" maxlength="10">
+                                <input type="tel" name="phone" class="form-control" required placeholder="9826258844" maxlength="10">
                             </div>
                         </div>
                     </div>

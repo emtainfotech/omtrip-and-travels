@@ -34,7 +34,7 @@ class FleetController extends Controller
         $vehicles = $vehicleModel->getActiveVehicles($categoryId, $seats);
 
         $appUrl = rtrim(env('APP_URL', ''), '/');
-        $wa     = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
+        $wa     = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
         $waTpl  = $settings['wa_message_general'] ?? 'Hello, I want to enquire about your vehicles. Page: {page_url}';
         $waUrl  = 'https://wa.me/' . $wa . '?text=' . rawurlencode(str_replace('{page_url}', $appUrl . '/fleet', $waTpl));
 
@@ -63,8 +63,8 @@ class FleetController extends Controller
         $settings = (new Setting())->getAllFlat();
 
         $appUrl  = rtrim(env('APP_URL', ''), '/');
-        $wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
-        $phone   = $settings['phone']           ?? env('PHONE_NUMBER', '+919876543210');
+        $wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
+        $phone   = $settings['phone']           ?? env('PHONE_NUMBER', '+919826258844');
         $waTpl   = $settings['wa_message_vehicle'] ?? 'Hello, I am interested in {vehicle_name}. Page: {page_url}';
         $pageUrl = $appUrl . '/fleet/' . $slug;
         $waMsg   = str_replace(['{vehicle_name}', '{page_url}'], [$vehicle['name'], $pageUrl], $waTpl);

@@ -2,8 +2,8 @@
 /**
  * Airport and local transfers view.
  */
-$phone = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98765 43210');
-$wa    = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
+$phone = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98262 58844');
+$wa    = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
 $waUrl = 'https://wa.me/' . $wa . '?text=' . rawurlencode('Hello OM Trip and Travels, I need an airport taxi in Indore.');
 ?>
 <!-- PAGE HERO -->

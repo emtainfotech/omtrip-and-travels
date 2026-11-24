@@ -202,7 +202,7 @@ if (!function_exists('whatsappUrl')) {
      */
     function whatsappUrl(string $templateKey = 'wa_message_general', array $placeholders = []): string
     {
-        $number  = env('WHATSAPP_NUMBER', setting('whatsapp_number', '919876543210'));
+        $number  = env('WHATSAPP_NUMBER', setting('whatsapp_number', '919826258844'));
         $message = setting($templateKey, 'Hello OM Trip and Travels!');
 
         $placeholders['{page_url}'] = currentUrl();
@@ -220,7 +220,7 @@ if (!function_exists('phoneUrl')) {
      */
     function phoneUrl(): string
     {
-        $phone = env('PHONE_NUMBER', setting('phone', '+919876543210'));
+        $phone = env('PHONE_NUMBER', setting('phone', '+919826258844'));
         return 'tel:' . preg_replace('/\s+/', '', $phone);
     }
 }

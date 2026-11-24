@@ -64,7 +64,7 @@
                 <h3 class="h5 fw-bold mb-2">Need a Cab or Tempo Traveller for this Trip?</h3>
                 <p class="text-muted small mb-3">OM Trip and Travels offers comfortable vehicles with professional drivers at the most competitive rates in Indore.</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="tel:<?= htmlspecialchars($settings['phone'] ?? '+919876543210') ?>" class="btn btn-primary" data-log-call="1">
+                    <a href="tel:<?= htmlspecialchars($settings['phone'] ?? '+919826258844') ?>" class="btn btn-primary" data-log-call="1">
                         <i class="bi bi-telephone-fill me-1"></i>Call Now
                     </a>
                     <a href="/booking" class="btn btn-outline-secondary">

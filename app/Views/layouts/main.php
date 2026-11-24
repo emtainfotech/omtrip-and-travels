@@ -11,8 +11,8 @@ $settings = function(string $k, string $d='') {
     return htmlspecialchars($m[$k] ?? $d, ENT_QUOTES, 'UTF-8');
 };
 
-$phone   = $settings('phone', env('PHONE_NUMBER', '+91 98765 43210'));
-$wa      = $settings('whatsapp_number', env('WHATSAPP_NUMBER', '919876543210'));
+$phone   = $settings('phone', env('PHONE_NUMBER', '+91 98262 58844'));
+$wa      = $settings('whatsapp_number', env('WHATSAPP_NUMBER', '919826258844'));
 $bizName = $settings('business_name', 'OM Trip and Travels');
 $appUrl  = rtrim(env('APP_URL', ''), '/');
 
@@ -71,7 +71,7 @@ $flash = App\Core\Session::allFlash();
         "url": "<?= $appUrl ?>",
         "logo": "<?= $appUrl ?>/assets/images/logo.png",
         "image": "<?= $appUrl ?>/assets/images/og-default.jpg",
-        "telephone": "<?= $settings('phone', '+919876543210') ?>",
+        "telephone": "<?= $settings('phone', '+919826258844') ?>",
         "email": "<?= $settings('email', '') ?>",
         "address": {
             "@type": "PostalAddress",

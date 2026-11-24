@@ -235,8 +235,8 @@ SMTP_FROM=info@yourdomain.com
 ADMIN_NOTIFY_EMAIL=admin@yourdomain.com
 
 # Business Contact details for Call & WhatsApp CTAs
-WHATSAPP_NUMBER=919826012345
-PHONE_NUMBER="+91 98260 12345"
+WHATSAPP_NUMBER=919826258844
+PHONE_NUMBER="+91 98262 58844"
 
 # Optional Cloudflare Turnstile (leave blank to disable)
 TURNSTILE_SITE_KEY=
@@ -285,7 +285,7 @@ TURNSTILE_SECRET_KEY=
 ## ✅ Post-Launch Verification Checklist
 
 1. [ ] **Homepage Verification**: Open your domain in mobile & desktop views. Check banner slides and USP strip.
-2. [ ] **Call Button Test**: Tap the "Call Now" buttons and verify your phone dialer opens with `+919876543210`.
+2. [ ] **Call Button Test**: Tap the "Call Now" buttons and verify your phone dialer opens with `+91 98262 58844`.
 3. [ ] **WhatsApp Button Test**: Tap the floating WhatsApp button and vehicle WhatsApp buttons. Verify WhatsApp opens with the pre-filled message including vehicle name and URL.
 4. [ ] **Booking Form Submission**: Submit a booking request from `/booking`. Verify:
    - Green confirmation banner appears.
@@ -301,5 +301,5 @@ TURNSTILE_SECRET_KEY=
 ## 📞 Support & Business Inquiries
 **OM Trip and Travels**  
 Vijay Nagar, Indore, Madhya Pradesh - 452010  
-Phone: +91 98765 43210 | Email: info@omtripandtravels.com
+Phone: +91 98262 58844 | Email: info@omtripandtravels.com
 

@@ -31,11 +31,11 @@
                     <div class="row g-2 mb-3">
                         <div class="col-6">
                             <label class="form-label">Phone Number (Call Now)</label>
-                            <input type="text" name="settings[phone]" class="form-control" value="<?= htmlspecialchars($settings['phone'] ?? '+91 98765 43210') ?>">
+                            <input type="text" name="settings[phone]" class="form-control" value="<?= htmlspecialchars($settings['phone'] ?? '+91 98262 58844') ?>">
                         </div>
                         <div class="col-6">
-                            <label class="form-label">WhatsApp Number (e.g. 919876543210)</label>
-                            <input type="text" name="settings[whatsapp_number]" class="form-control" value="<?= htmlspecialchars($settings['whatsapp_number'] ?? '919876543210') ?>">
+                            <label class="form-label">WhatsApp Number (e.g. 919826258844)</label>
+                            <input type="text" name="settings[whatsapp_number]" class="form-control" value="<?= htmlspecialchars($settings['whatsapp_number'] ?? '919826258844') ?>">
                         </div>
                     </div>
                     <div class="mb-3">

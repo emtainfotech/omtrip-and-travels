@@ -23,8 +23,8 @@ class HomeController extends Controller
         $categories   = (new VehicleCategory())->getWithVehicleCount();
 
         $settings     = (new Setting())->getAllFlat();
-        $phone        = $settings['phone']            ?? env('PHONE_NUMBER', '+919876543210');
-        $wa           = $settings['whatsapp_number']  ?? env('WHATSAPP_NUMBER', '919876543210');
+        $phone        = $settings['phone']            ?? env('PHONE_NUMBER', '+919826258844');
+        $wa           = $settings['whatsapp_number']  ?? env('WHATSAPP_NUMBER', '919826258844');
         $waMsgTpl     = $settings['wa_message_general'] ?? 'Hello OM Trip and Travels, I would like to enquire. Page: {page_url}';
         $appUrl       = rtrim(env('APP_URL', ''), '/');
         $waMsg        = str_replace('{page_url}', $appUrl . '/', $waMsgTpl);

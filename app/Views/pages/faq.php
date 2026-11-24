@@ -51,10 +51,10 @@
                 <h3 class="h5 fw-bold mb-2">Still have questions about your trip?</h3>
                 <p class="text-muted small mb-3">Our helpline is active 24/7. Speak to our Indore travel coordinator right now.</p>
                 <div class="d-flex justify-content-center gap-3">
-                    <a href="tel:<?= htmlspecialchars($settings['phone'] ?? '+919876543210') ?>" class="btn btn-primary" data-log-call="1">
+                    <a href="tel:<?= htmlspecialchars($settings['phone'] ?? '+919826258844') ?>" class="btn btn-primary" data-log-call="1">
                         <i class="bi bi-telephone-fill me-1"></i>Call Support
                     </a>
-                    <a href="https://wa.me/<?= htmlspecialchars($settings['whatsapp_number'] ?? '919876543210') ?>?text=Hello%20I%20have%20a%20question%20about%20booking" target="_blank" class="btn btn-whatsapp" data-log-whatsapp="1">
+                    <a href="https://wa.me/<?= htmlspecialchars($settings['whatsapp_number'] ?? '919826258844') ?>?text=Hello%20I%20have%20a%20question%20about%20booking" target="_blank" class="btn btn-whatsapp" data-log-whatsapp="1">
                         <i class="bi bi-whatsapp me-1"></i>Ask on WhatsApp
                     </a>
                 </div>

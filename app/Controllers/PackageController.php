@@ -18,8 +18,8 @@ class PackageController extends Controller
         $settings     = (new Setting())->getAllFlat();
 
         $appUrl = rtrim(env('APP_URL', ''), '/');
-        $wa     = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
-        $phone  = $settings['phone']           ?? env('PHONE_NUMBER', '+919876543210');
+        $wa     = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
+        $phone  = $settings['phone']           ?? env('PHONE_NUMBER', '+919826258844');
         $waTpl  = $settings['wa_message_package'] ?? 'Hello, I want to enquire about tour packages from Indore. Page: {page_url}';
         $waMsg  = str_replace(['{package_name}', '{page_url}'], ['Tour Packages', $appUrl . '/packages'], $waTpl);
         $waUrl  = 'https://wa.me/' . $wa . '?text=' . rawurlencode($waMsg);
@@ -61,8 +61,8 @@ class PackageController extends Controller
         $settings = (new Setting())->getAllFlat();
 
         $appUrl  = rtrim(env('APP_URL', ''), '/');
-        $wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
-        $phone   = $settings['phone']           ?? env('PHONE_NUMBER', '+919876543210');
+        $wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
+        $phone   = $settings['phone']           ?? env('PHONE_NUMBER', '+919826258844');
         $pageUrl = $appUrl . '/packages/' . $slug;
 
         $waTpl = $settings['wa_message_package'] ?? 'Hello, I want to enquire about the {package_name} package. Page: {page_url}';

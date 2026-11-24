@@ -2,8 +2,8 @@
 /**
  * Home page view.
  */
-$phone   = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98765 43210');
-$wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919876543210');
+$phone   = $settings['phone'] ?? env('PHONE_NUMBER', '+91 98262 58844');
+$wa      = $settings['whatsapp_number'] ?? env('WHATSAPP_NUMBER', '919826258844');
 $appUrl  = rtrim(env('APP_URL', ''), '/');
 ?>
 
@@ -632,7 +632,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                         <label class="form-label fw-semibold">Mobile / WhatsApp Number <span class="text-danger">*</span></label>
                         <div class="input-group">
                             <span class="input-group-text bg-white">+91</span>
-                            <input type="tel" name="phone" class="form-control" placeholder="98260 12345" pattern="[6-9][0-9]{9}" required>
+                            <input type="tel" name="phone" class="form-control" placeholder="98262 58844" pattern="[6-9][0-9]{9}" required>
                         </div>
                         <small class="text-muted">We will send fare options &amp; vehicle photos on WhatsApp.</small>
                     </div>
