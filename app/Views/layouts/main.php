@@ -122,7 +122,7 @@ $flash = App\Core\Session::allFlash();
 
         <!-- Brand Logo -->
         <a class="navbar-brand py-1 d-flex align-items-center" href="/">
-            <img src="/assets/images/logo.svg" alt="OM Trip and Travels" height="42" style="max-height: 42px; width: auto;" onerror="this.src='/assets/images/logo.png'">
+            <img src="/assets/images/logo.svg" alt="OM Trip and Travels" width="210" height="42" style="height: 42px; width: auto; max-width: 210px;" onerror="this.src='/assets/images/logo.png'">
         </a>
 
         <!-- Mobile Right: WhatsApp direct icon -->
