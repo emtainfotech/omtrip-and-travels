@@ -47,9 +47,9 @@ class FleetController extends Controller
         ));
     }
 
-    public function show(array $params = []): void
+    public function show($params = []): void
     {
-        $slug    = $params['slug'] ?? '';
+        $slug    = is_array($params) ? ($params['slug'] ?? (reset($params) ?: '')) : (string)$params;
         $vehicle = (new Vehicle())->findBySlug($slug);
 
         if (!$vehicle) {

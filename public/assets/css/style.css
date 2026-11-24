@@ -183,9 +183,9 @@ img { max-width: 100%; height: auto; }
 }
 .hero-slide-wrapper {
     position: relative;
-    min-height: 540px;
-    max-height: 640px;
-    height: 64vh;
+    min-height: 520px;
+    max-height: 600px;
+    height: 60vh;
     overflow: hidden;
 }
 .hero-slide-bg {
@@ -209,7 +209,8 @@ img { max-width: 100%; height: auto; }
     background: linear-gradient(90deg, rgba(11, 30, 56, 0.95) 0%, rgba(11, 30, 56, 0.82) 42%, rgba(11, 30, 56, 0.28) 100%);
     display: flex;
     align-items: center;
-    padding-bottom: 3.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 5.5rem;
 }
 .btn-hero-slider-outline {
     background: rgba(255, 255, 255, 0.12);
@@ -231,7 +232,7 @@ img { max-width: 100%; height: auto; }
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
 }
 #heroBannerCarousel .carousel-indicators {
-    bottom: 80px;
+    bottom: 68px;
     z-index: 22;
 }
 #heroBannerCarousel .carousel-indicators [data-bs-target] {
@@ -270,31 +271,51 @@ img { max-width: 100%; height: auto; }
 }
 @media (max-width: 991px) {
     .hero-slide-wrapper {
-        min-height: 480px;
+        min-height: 460px;
         height: auto;
     }
     .hero-slide-overlay {
-        padding-bottom: 4rem;
+        padding-top: 1.5rem;
+        padding-bottom: 3.5rem;
     }
     #heroBannerCarousel .carousel-indicators {
-        bottom: 60px;
+        bottom: 18px;
     }
 }
 @media (max-width: 768px) {
     .hero-slide-wrapper {
-        min-height: auto;
-        height: auto;
+        min-height: 440px;
+        height: 58vh;
+        max-height: 520px;
     }
     .hero-slide-bg {
-        height: 250px;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     .hero-slide-overlay {
-        position: relative;
-        background: #0b1e38;
-        padding: 1.75rem 0.5rem 3.5rem 0.5rem;
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(11, 30, 56, 0.72) 0%, rgba(11, 30, 56, 0.88) 55%, rgba(11, 30, 56, 0.98) 100%);
+        padding: 1.5rem 0.85rem 2.5rem 0.85rem;
+        display: flex;
+        align-items: center;
+    }
+    .hero-title {
+        font-size: 1.55rem !important;
+        line-height: 1.25;
+    }
+    .hero-subtext {
+        font-size: 0.9rem !important;
+        margin-bottom: 1rem !important;
+    }
+    .quick-quote-card {
+        padding: 1.1rem 1rem !important;
     }
     #heroBannerCarousel .carousel-indicators {
-        bottom: 15px;
+        bottom: 12px;
     }
 }
 
@@ -454,7 +475,7 @@ img { max-width: 100%; height: auto; }
 .quick-quote-wrapper {
     position: relative;
     z-index: 25;
-    margin-top: -55px;
+    margin-top: -45px;
     margin-bottom: 2rem;
 }
 .quick-quote-card {
@@ -620,13 +641,13 @@ img { max-width: 100%; height: auto; }
     box-shadow: 0 10px 30px rgba(15,23,42,0.09);
 }
 .mockup-card-img-wrap {
-    height: 195px;
+    height: 165px;
     background: #ffffff;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 0.25rem;
     overflow: hidden;
     border-bottom: 1px solid #edf2f7;
 }
@@ -748,7 +769,8 @@ img { max-width: 100%; height: auto; }
 /* Mobile responsive fixes */
 @media (max-width: 991px) {
     .quick-quote-wrapper {
-        margin-top: 1.5rem;
+        margin-top: 1.25rem !important;
+        margin-bottom: 1.75rem;
     }
     .hero-section {
         padding-top: 2rem;
@@ -760,6 +782,20 @@ img { max-width: 100%; height: auto; }
     .hero-graphic {
         max-height: 240px;
         margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .site-navbar .nav-link {
+        font-size: 0.86rem;
+        padding: 0.35rem 0.45rem !important;
+    }
+    .brand-title {
+        font-size: 1.05rem !important;
+    }
+    .nav-phone-pill {
+        padding: 0.35rem 0.75rem;
+        font-size: 0.84rem;
     }
 }
 

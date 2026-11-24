@@ -16,9 +16,9 @@ class BlogController extends Controller
         $this->renderBlogList();
     }
 
-    public function category(array $params = []): void
+    public function category($params = []): void
     {
-        $slug = $params['slug'] ?? '';
+        $slug = is_array($params) ? ($params['slug'] ?? (reset($params) ?: '')) : (string)$params;
         $cat  = (new BlogCategory())->findBySlug($slug);
         if (!$cat) {
             $this->abort(404, 'Category not found.');
@@ -26,9 +26,9 @@ class BlogController extends Controller
         $this->renderBlogList((int)$cat['id'], 0, '', $cat);
     }
 
-    public function tag(array $params = []): void
+    public function tag($params = []): void
     {
-        $slug = $params['slug'] ?? '';
+        $slug = is_array($params) ? ($params['slug'] ?? (reset($params) ?: '')) : (string)$params;
         $tag  = (new BlogTag())->findBySlug($slug);
         if (!$tag) {
             $this->abort(404, 'Tag not found.');
@@ -82,9 +82,9 @@ class BlogController extends Controller
         ]);
     }
 
-    public function show(array $params = []): void
+    public function show($params = []): void
     {
-        $slug = $params['slug'] ?? '';
+        $slug = is_array($params) ? ($params['slug'] ?? (reset($params) ?: '')) : (string)$params;
         $blogModel = new BlogPost();
         $post = $blogModel->findBySlug($slug);
 

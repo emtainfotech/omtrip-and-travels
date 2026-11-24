@@ -255,7 +255,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
             </a>
         </div>
 
-        <div class="row g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5 g-3 justify-content-center">
             <?php
             $fleetCards = [
                 'force-urbania' => [
@@ -325,7 +325,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                 $vWaMsg = "Hello OM Trip and Travels, I am interested in booking the " . $meta['name'] . " on rent in Indore. Page: " . $appUrl . $vPage;
                 $vWaUrl = "https://wa.me/{$wa}?text=" . rawurlencode($vWaMsg);
             ?>
-            <div class="col-lg-3 col-md-6">
+            <div class="col">
                 <div class="card mockup-vehicle-card h-100">
                     <div class="mockup-card-img-wrap">
                         <span class="mockup-corner-badge <?= $meta['badge_class'] ?>"><?= $meta['badge'] ?></span>
@@ -428,7 +428,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
 
 <!-- 6. POPULAR ROUTES & PILGRIMAGE PACKAGES FROM INDORE -->
 <section class="py-5 bg-light">
-    <div class="container py-3">
+    <div class="container">
         <div class="text-center mb-5">
             <span class="text-primary fw-bold text-uppercase fs-7">Spiritual &amp; Leisure Getaways</span>
             <h2 class="section-title">Popular Tour Routes from Indore</h2>
@@ -477,7 +477,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
 
 <!-- 6. WHY CHOOSE OM TRIP AND TRAVELS -->
 <section class="py-5">
-    <div class="container py-3">
+    <div class="container">
         <div class="text-center mb-5">
             <span class="text-primary fw-bold text-uppercase fs-7">Our Promise</span>
             <h2 class="section-title">Why Choose OM Trip and Travels?</h2>
@@ -521,7 +521,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
 
 <!-- 7. TESTIMONIALS -->
 <section class="py-5 bg-light">
-    <div class="container py-3">
+    <div class="container">
         <div class="text-center mb-5">
             <span class="text-primary fw-bold text-uppercase fs-7">Customer Voices</span>
             <h2 class="section-title">What Our Travelers Say</h2>
@@ -558,7 +558,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
 <!-- 8. LATEST BLOG POSTS -->
 <?php if (!empty($blogs)): ?>
 <section class="py-5">
-    <div class="container py-3">
+    <div class="container">
         <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
             <div>
                 <span class="text-primary fw-bold text-uppercase fs-7">Travel Advice &amp; Guides</span>
@@ -594,7 +594,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
 
 <!-- 9. FAQ ACCORDION PREVIEW -->
 <section class="py-5 bg-light">
-    <div class="container py-3">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center mb-4">

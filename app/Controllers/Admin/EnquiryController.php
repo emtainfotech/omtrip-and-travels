@@ -56,11 +56,11 @@ class EnquiryController extends Controller
     /**
      * View enquiry details and its notes.
      */
-    public function show(array $params = []): void
+    public function show($params = []): void
     {
         $this->requireAdmin();
 
-        $id = (int) ($params['id'] ?? 0);
+        $id = is_array($params) ? (int)($params['id'] ?? (reset($params) ?: 0)) : (int)$params;
         $enquiryModel = new Enquiry();
         $enquiry = $enquiryModel->getDetail($id);
 
