@@ -1,23 +1,25 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$db = new PDO('sqlite:' . __DIR__ . '/../storage/database.sqlite');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-use App\Core\Database;
+$vehicles = $db->query("SELECT id, name, slug FROM vehicles")->fetchAll(PDO::FETCH_ASSOC);
 
-$db = Database::getInstance()->getPdo();
-
-$updates = [
-    'force-urbania'   => ['img' => '/assets/images/vehicles/urbania.svg', 'badge' => 'Premium', 'ideal' => 'Family Trips, Corporate Tours, Weddings, Pilgrimage'],
-    'tempo-traveller' => ['img' => '/assets/images/vehicles/tempo-traveller.svg', 'badge' => 'Group Favourite', 'ideal' => 'Group Tours, School/College Trips, Religious Yatra'],
-    'innova-crysta'   => ['img' => '/assets/images/vehicles/innova-crysta.svg', 'badge' => 'Family Choice', 'ideal' => 'Family Travel, Outstation Trips, Business Travel'],
-    'toyota-fortuner' => ['img' => '/assets/images/vehicles/fortuner.svg', 'badge' => 'Luxury', 'ideal' => 'VIP Travel, Weddings, Corporate & Long Tours'],
-];
-
-foreach ($updates as $slug => $data) {
-    $stmt = $db->prepare("UPDATE vehicles SET primary_image = ?, ideal_for = ? WHERE slug = ?");
-    $stmt->execute([$data['img'], $data['ideal'], $slug]);
+foreach ($vehicles as $v) {
+    $slug = $v['slug'];
+    $img = '/assets/images/vehicles/urbania.jpg';
+    if (str_contains($slug, 'urbania')) {
+        $img = '/assets/images/vehicles/urbania.jpg';
+    } elseif (str_contains($slug, 'tempo') || str_contains($slug, 'traveller')) {
+        $img = '/assets/images/vehicles/tempo-traveller.jpg';
+    } elseif (str_contains($slug, 'innova') || str_contains($slug, 'crysta') || str_contains($slug, 'hycross')) {
+        $img = '/assets/images/vehicles/innova-crysta.jpg';
+    } elseif (str_contains($slug, 'fortuner')) {
+        $img = '/assets/images/vehicles/fortuner.jpg';
+    }
+    
+    $stmt = $db->prepare("UPDATE vehicles SET primary_image = :img WHERE id = :id");
+    $stmt->execute([':img' => $img, ':id' => $v['id']]);
+    echo "ID {$v['id']}: {$v['name']} ({$v['slug']}) -> $img\n";
 }
-
-echo "✅ Vehicle images and ideal_for updated successfully!\n";
-

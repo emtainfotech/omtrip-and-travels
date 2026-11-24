@@ -49,9 +49,14 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                 </div>
             </div>
 
-            <!-- Right: 3-Vehicle Graphic with Mahakaleshwar sketch -->
+            <!-- Right: Real Photorealistic Fleet Poster with Mahakaleshwar Ujjain Backdrop -->
             <div class="col-lg-6 text-center text-lg-end hero-graphic-wrap">
-                <img src="/assets/images/hero-vehicles.svg" alt="Urbania &amp; Tempo Traveller rentals in Indore" class="img-fluid hero-graphic">
+                <div class="hero-poster-frame">
+                    <img src="/assets/images/hero-fleet-banner.jpg" alt="Force Urbania, Tempo Traveller, Fortuner &amp; Innova on Rent in Indore" class="img-fluid hero-poster-img" loading="eager">
+                    <div class="hero-poster-badge">
+                        <i class="bi bi-patch-check-fill text-warning me-1"></i> Verified Luxury Fleet &bull; Indore
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -216,7 +221,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                     'name' => 'Force Urbania',
                     'badge' => 'Premium',
                     'badge_class' => 'badge-pill-orange',
-                    'img' => '/assets/images/vehicles/urbania.svg',
+                    'img' => '/assets/images/vehicles/urbania.jpg',
                     'specs' => [
                         ['icon' => 'bi-people-fill', 'text' => '17 Seats'],
                         ['icon' => 'bi-snow', 'text' => 'AC'],
@@ -228,7 +233,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                     'name' => 'Tempo Traveller',
                     'badge' => 'Group Favourite',
                     'badge_class' => 'badge-pill-amber',
-                    'img' => '/assets/images/vehicles/tempo-traveller.svg',
+                    'img' => '/assets/images/vehicles/tempo-traveller.jpg',
                     'specs' => [
                         ['icon' => 'bi-people-fill', 'text' => '12 / 17 Seats'],
                         ['icon' => 'bi-snow', 'text' => 'AC'],
@@ -240,7 +245,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                     'name' => 'Innova Crysta',
                     'badge' => 'Family Choice',
                     'badge_class' => 'badge-pill-orange',
-                    'img' => '/assets/images/vehicles/innova-crysta.svg',
+                    'img' => '/assets/images/vehicles/innova-crysta.jpg',
                     'specs' => [
                         ['icon' => 'bi-people-fill', 'text' => '7 / 8 Seats'],
                         ['icon' => 'bi-snow', 'text' => 'AC'],
@@ -252,7 +257,7 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                     'name' => 'Toyota Fortuner',
                     'badge' => 'Luxury',
                     'badge_class' => 'badge-pill-amber',
-                    'img' => '/assets/images/vehicles/fortuner.svg',
+                    'img' => '/assets/images/vehicles/fortuner.jpg',
                     'specs' => [
                         ['icon' => 'bi-people-fill', 'text' => '7 Seats'],
                         ['icon' => 'bi-snow', 'text' => 'AC'],
