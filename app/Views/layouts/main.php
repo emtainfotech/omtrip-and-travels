@@ -60,7 +60,7 @@ $flash = App\Core\Session::allFlash();
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap-icons.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css?v=<?= file_exists(PUBLIC_PATH . '/assets/css/style.css') ? filemtime(PUBLIC_PATH . '/assets/css/style.css') : time() ?>">
 
     <!-- JSON-LD: LocalBusiness -->
     <script type="application/ld+json">
@@ -120,13 +120,9 @@ $flash = App\Core\Session::allFlash();
             <i class="bi bi-list fs-1 text-dark"></i>
         </button>
 
-        <!-- Brand Logo & Company Name -->
-        <a class="navbar-brand d-flex align-items-center py-1" href="/">
-            <img src="/assets/images/logo.svg" alt="OM Trip and Travels" height="42" class="me-2" onerror="this.src='/assets/images/logo.png'">
-            <div class="brand-text-wrap d-flex flex-column text-start">
-                <span class="brand-title fw-bold text-dark lh-1" style="font-size: 1.25rem; letter-spacing: -0.3px;">OM Trip and Travels</span>
-                <span class="brand-tagline text-muted small lh-1 mt-1" style="font-size: 0.75rem;">Urbania &bull; Tempo Traveller &bull; Indore</span>
-            </div>
+        <!-- Brand Logo -->
+        <a class="navbar-brand py-1 d-flex align-items-center" href="/">
+            <img src="/assets/images/logo.svg" alt="OM Trip and Travels" height="42" style="max-height: 42px; width: auto;" onerror="this.src='/assets/images/logo.png'">
         </a>
 
         <!-- Mobile Right: WhatsApp direct icon -->

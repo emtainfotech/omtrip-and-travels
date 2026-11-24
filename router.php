@@ -36,7 +36,11 @@ if ($uri !== '/' && file_exists($filePath) && !is_dir($filePath)) {
     $mime = $mimes[$ext] ?? (function_exists('mime_content_type') ? @mime_content_type($filePath) : 'application/octet-stream') ?: 'application/octet-stream';
     header('Content-Type: ' . $mime);
     header('Content-Length: ' . (string) filesize($filePath));
-    header('Cache-Control: public, max-age=86400');
+    if ($ext === 'css' || $ext === 'js') {
+        header('Cache-Control: no-cache, must-revalidate');
+    } else {
+        header('Cache-Control: public, max-age=86400');
+    }
     readfile($filePath);
     exit;
 }

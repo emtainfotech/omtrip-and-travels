@@ -42,51 +42,21 @@ $appUrl  = rtrim(env('APP_URL', ''), '/');
                 $ctaText = $b['cta_text'] ?: 'Book Tour Package';
             ?>
             <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
-                <div class="hero-slide-wrapper">
-                    <img src="<?= htmlspecialchars($b['image_path']) ?>" class="d-block w-100 hero-slide-bg" alt="<?= htmlspecialchars($b['title']) ?>" loading="<?= $idx === 0 ? 'eager' : 'lazy' ?>">
-                    <div class="hero-slide-overlay">
-                        <div class="container h-100 d-flex flex-column justify-content-center">
-                            <div class="row">
-                                <div class="col-xl-8 col-lg-9 col-md-11 text-white py-4">
-                                    <div class="badge-hero-pill mb-3">
-                                        <i class="bi bi-patch-check-fill text-warning me-2"></i>OM Trip and Travels &bull; Indore
-                                    </div>
-                                    <h1 class="hero-title mb-3">
-                                        <?= htmlspecialchars($b['title']) ?>
-                                    </h1>
+                <a href="<?= htmlspecialchars($ctaUrl) ?>" class="hero-slide-link d-block" title="<?= htmlspecialchars($b['title']) ?>" <?= $b['cta_type'] === 'whatsapp' ? 'target="_blank" rel="noopener" data-log-whatsapp="1"' : ($b['cta_type'] === 'call' ? 'data-log-call="1"' : '') ?>>
+                    <div class="hero-slide-wrapper">
+                        <img src="<?= htmlspecialchars($b['image_path']) ?>" class="d-block w-100 hero-slide-bg" alt="<?= htmlspecialchars($b['title']) ?>" loading="<?= $idx === 0 ? 'eager' : 'lazy' ?>">
+                        <div class="hero-slide-caption">
+                            <div class="container">
+                                <div class="slide-caption-content text-white">
+                                    <span class="slide-badge mb-1"><i class="bi bi-geo-alt-fill text-warning me-1"></i><?= htmlspecialchars($b['title']) ?></span>
                                     <?php if (!empty($b['subtitle'])): ?>
-                                    <p class="hero-subtext mb-4">
-                                        <?= htmlspecialchars($b['subtitle']) ?>
-                                    </p>
+                                    <p class="slide-subtitle d-none d-md-block mb-0"><?= htmlspecialchars($b['subtitle']) ?></p>
                                     <?php endif; ?>
-
-                                    <!-- 3 Action CTAs -->
-                                    <div class="d-flex flex-wrap gap-2 gap-sm-3 mb-4">
-                                        <a href="<?= htmlspecialchars($ctaUrl) ?>" class="btn btn-hero-call" <?= $b['cta_type'] === 'whatsapp' ? 'target="_blank" rel="noopener" data-log-whatsapp="1"' : ($b['cta_type'] === 'call' ? 'data-log-call="1"' : '') ?>>
-                                            <i class="bi <?= $b['cta_type'] === 'whatsapp' ? 'bi-whatsapp' : ($b['cta_type'] === 'call' ? 'bi-telephone-fill' : 'bi-compass-fill') ?> me-1"></i> <?= htmlspecialchars($ctaText) ?>
-                                        </a>
-                                        <a href="tel:<?= htmlspecialchars($phone) ?>" class="btn btn-hero-slider-outline" data-log-call="1">
-                                            <i class="bi bi-telephone-fill me-1"></i> Call Now
-                                        </a>
-                                        <a href="<?= htmlspecialchars($waUrl) ?>" target="_blank" rel="noopener" class="btn btn-hero-wa" data-log-whatsapp="1">
-                                            <i class="bi bi-whatsapp me-1"></i> WhatsApp
-                                        </a>
-                                    </div>
-
-                                    <!-- Quick Route Pills -->
-                                    <div class="d-flex flex-wrap gap-2 hero-route-pills">
-                                        <a href="/packages/indore-to-ujjain-mahakal-darshan" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Ujjain</a>
-                                        <a href="/packages/indore-to-omkareshwar-jyotirlinga" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Omkareshwar</a>
-                                        <a href="/packages/maheshwar-mandu-heritage-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Maheshwar-Mandu</a>
-                                        <a href="/packages/pachmarhi-hill-station-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Pachmarhi</a>
-                                        <a href="/packages" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Bhopal</a>
-                                        <a href="/packages/indore-to-shirdi-tour" class="route-pill"><i class="bi bi-geo-alt-fill text-primary me-1"></i>Shirdi</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <?php endforeach; ?>
         </div>
