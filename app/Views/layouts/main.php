@@ -60,7 +60,11 @@ $flash = App\Core\Session::allFlash();
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="/assets/vendor/bootstrap-icons.min.css">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css?v=<?= file_exists(PUBLIC_PATH . '/assets/css/style.css') ? filemtime(PUBLIC_PATH . '/assets/css/style.css') : time() ?>">
+    <?php
+    $styleCssPath = (defined('PUBLIC_PATH') ? PUBLIC_PATH : (dirname(__DIR__, 2) . '/public')) . '/assets/css/style.css';
+    $cssVer = file_exists($styleCssPath) ? filemtime($styleCssPath) : time();
+    ?>
+    <link rel="stylesheet" href="/assets/css/style.css?v=<?= $cssVer ?>">
 
     <!-- JSON-LD: LocalBusiness -->
     <script type="application/ld+json">
