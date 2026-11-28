@@ -17,7 +17,8 @@ class ApiController extends Controller
      */
     public function clickLog(array $params = []): void
     {
-        $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
+        $rawJson = json_decode(file_get_contents('php://input'), true);
+        $input = is_array($rawJson) && !empty($rawJson) ? $rawJson : $_POST;
 
         $type      = ($input['type'] ?? '') === 'whatsapp' ? 'whatsapp' : 'call';
         $vehicleId = !empty($input['vehicle_id']) ? (int) $input['vehicle_id'] : null;
@@ -44,7 +45,8 @@ class ApiController extends Controller
      */
     public function quickEnquiry(array $params = []): void
     {
-        $input = json_decode(file_get_contents('php://input'), true) ?? $_POST;
+        $rawJson = json_decode(file_get_contents('php://input'), true);
+        $input = is_array($rawJson) && !empty($rawJson) ? $rawJson : $_POST;
 
         // Anti-spam honeypot
         if (!empty($input['website_hp'])) {
